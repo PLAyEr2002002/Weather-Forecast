@@ -1,5 +1,5 @@
 import streamlit as st 
-import plotly.express as px
+# import plotly.express as px
 from backend import get_data
 
 
@@ -27,6 +27,7 @@ if place:
 
 
         if option=="Sky":
+            st.header("This functionality doesn't work on streamlit cloud :((")
             images={"Clear":"images/clear.png","Clouds":"images/cloud.png","Rain":"images/rain.png","Snow":"images/snow.png"}
             sky_condition= [value["weather"][0]["main"] for value in filtered_data]   
             image_paths= [images[condition] for condition in sky_condition]
