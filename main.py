@@ -19,15 +19,17 @@ if place:
         
         filtered_data= get_data(place, days)
         if option=="Temperature":
+            st.header("This functionality doesn't work on streamlit cloud :((")
             temperatures= [value["main"]["temp"] /10 for value in filtered_data]
-            # temperatures= [temp-273.15 for temp in temperatures]
+            temperatures= [temp-273.15 for temp in temperatures]
             dates=[value["dt_txt"] for value in filtered_data]
-            figure= px.line(x=dates, y=temperatures, labels={"x":"Date", "y":"Temperature(c)"})
-            st.plotly_chart(figure)
+            st.write(dates, temperatures)
+            # figure= px.line(x=dates, y=temperatures, labels={"x":"Date", "y":"Temperature(c)"})
+            # st.plotly_chart(figure)
 
 
         if option=="Sky":
-            st.header("This functionality doesn't work on streamlit cloud :((")
+            
             images={"Clear":"images/clear.png","Clouds":"images/cloud.png","Rain":"images/rain.png","Snow":"images/snow.png"}
             sky_condition= [value["weather"][0]["main"] for value in filtered_data]   
             image_paths= [images[condition] for condition in sky_condition]
