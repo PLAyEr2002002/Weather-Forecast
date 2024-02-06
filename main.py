@@ -21,7 +21,7 @@ if place:
         if option=="Temperature":
             st.header("This functionality doesn't work on streamlit cloud :((")
             temperatures= [value["main"]["temp"] /10 for value in filtered_data]
-            temperatures= [temp-273.15 for temp in temperatures]
+            # temperatures= [temp-273.15 for temp in temperatures]
             dates=[value["dt_txt"] for value in filtered_data]
             st.write(dates, temperatures)
             # figure= px.line(x=dates, y=temperatures, labels={"x":"Date", "y":"Temperature(c)"})
